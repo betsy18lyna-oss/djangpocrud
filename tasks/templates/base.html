@@ -10,7 +10,11 @@
         <li><a href="{% url 'home' %}">Inicio</a></li>
         <li><a href="{% url 'signup' %}">Registro</a></li>
         <li><a href="{% url 'tasks' %}">Tareas</a></li>
-        <li><a href="">Cerrar</a></li>
+        {% if user.is_autenticaded %}
+        <li><a href="{% url 'signout' %}">Cerrar Session</a></li>
+        {% else %}
+        <li><a href="{% url 'signin' %}">Iniciar Session</a></li>
+        {% endif %}
     </ul>
     {% block content %}
     
