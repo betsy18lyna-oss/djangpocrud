@@ -6,6 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import TaskForm
 from .models import Task
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home(request):
     return render(request, "home.html")
@@ -13,10 +14,10 @@ def signout(request):
      logout(request)
      return redirect("home")
 
+@login_required
 def tasks(request):
     tasks = Task.objects.filter(user=request.user, datecompleted__isnull=True)
-    return render(request, "tasks.html",
-                  {"tasks":tasks})
+    return render(request, "tasks.html", {'tasks': tasks})
 
 def create_task(request):
     if request.method == 'GET': 
