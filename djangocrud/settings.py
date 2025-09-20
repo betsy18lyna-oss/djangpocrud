@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tasks',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/singin/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
