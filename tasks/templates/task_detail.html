@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">{{ task.title }}</h1>
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Descripción:</h5>
+            <p class="card-text">{{ task.description }}</p>
+
+            <h5 class="card-title mt-3">Importancia:</h5>
+            <p class="card-text">
+                {% if task.important %}
+                    <span class="badge badge-danger">Importante</span>
+                {% else %}
+                    <span class="badge badge-secondary">Normal</span>
+                {% endif %}
+            </p>
+
+            <h5 class="card-title mt-3">Fecha de creación:</h5>
+            <p class="card-text">{{ task.created|date:"F j, Y, P" }}</p>
+            
+            <a href="{% url 'tasks' %}" class="btn btn-secondary mt-3">Volver a la lista de tareas</a>
+            <a href="{% url 'task_edit' task.id %}" class="btn btn-primary mt-3">Editar</a>
+            <a href="{% url 'task_delete' task.id %}" class="btn btn-danger mt-3">Eliminar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
