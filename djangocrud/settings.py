@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tasks',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'basepag1',       
         'USER': 'postgres',      
-        'PASSWORD': '1234', 
+        'PASSWORD': '1818', 
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -129,3 +130,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/singin/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

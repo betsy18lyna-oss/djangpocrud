@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="alert alert-warning text-center" role="alert">
+                <h4 class="alert-heading">¿Estás seguro de que quieres eliminar esta tarea?</h4>
+                <p><strong>"{{ task.title }}"</strong></p>
+                <hr>
+                <p class="mb-0">Esta acción es irreversible.</p>
+            </div>
+            <form method="POST" class="text-center">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger mr-2">Sí, eliminar</button>
+                <a href="{% url 'tasks' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
